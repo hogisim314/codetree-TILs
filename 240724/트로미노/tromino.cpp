@@ -6,7 +6,7 @@ int grid[222][222];
 int max_sum = 0;
 
 int check_straight(int i, int j, int flag) {//flag가 1이면 세로 0이면 가로
-    int temp_sum =0;
+    int temp_sum = 0;
     if (flag==1) {
         temp_sum += grid[i][j];
         temp_sum += grid[i][j+1];
@@ -75,10 +75,10 @@ int main() {
             if (i>=1 && j>=1) {
                 max_sum = max(max_sum, check_block(i,j,2));
             }
-            if (i<=m-2 && j>=1) {
+            if (i<=n-2 && j>=1) {
                 max_sum = max(max_sum, check_block(i,j,3));
             }
-            if (i<=m-2 && j<=m-2) {
+            if (i<=n-2 && j<=m-2) {
                 max_sum = max(max_sum, check_block(i,j,4));
             }
         }
