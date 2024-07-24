@@ -15,11 +15,11 @@ bool IsHappySequence(){
     for (int i=1; i<n; i++) {
         if (seq[i-1]==seq[i]) {
             consecutive_count++;
+            max_ccnt = max(max_ccnt, consecutive_count);
         }
-        else 
-            consecutive_count =1;
-        
-        max_ccnt = max(max_ccnt, consecutive_count);
+        else {
+            consecutive_count =1 ;
+        }
     }
     return max_ccnt >=m;
 }
@@ -33,7 +33,6 @@ int main(){
 
     int num_happy = 0;
     
-    // 먼저 가로로 행복한 수열의 수를 셉니다.
     for (int i=0; i<n; i++) {
         for (int j=0; j<n; j++) {
             seq[j] = grid[i][j];
@@ -42,9 +41,8 @@ int main(){
             num_happy++;
         }
     }
-    
-    // 세로로 행복한 수열의 수를 셉니다.
-    for(int j = 0; j < n; j++){
+
+    for (int j=0; j<n; j++) {
         for (int i=0; i<n; i++) {
             seq[i] = grid[i][j];
         }
@@ -53,7 +51,7 @@ int main(){
         }
     }
 
-    cout << num_happy;
+    cout<<num_happy;
 
     return 0;
 }
